@@ -12,6 +12,8 @@ version 1.0
 ## Womtool version tested: 50
 ##
 
+import "prsice_tasks.wdl" as tasks
+
 workflow prsice {
     String version = "1.0"
 
@@ -24,15 +26,15 @@ workflow prsice {
         String out
         String working_directory
         String p_value_thresholds
+        String binary_phenotype_T_F
     }
 
-    call harmonize {
+    call tasks.harmonize {
         input:
             gwas          = gwas,
             bim           = bim,
-            bfile         = sub(bim, "\.bim$", "")
+            bfile         = sub(bim, "\.bim$", ""),
             output_prefix = out,
-            code_dir      = code_dir,
             work_dir      = working_directory,
             walltime      = "02:00:00",
             nodes         = 1,
@@ -42,10 +44,12 @@ workflow prsice {
             job_name      = "harmonize" + "_" + out
     }
 
-    call prsice_run {
+    Map[String, String] columns = read_json(harmonize.col_map)
+
+    call tasks.prsice_run {
         input:
             reference     = harmonize.out,
-            beta_or       = harmonize.beta_or,
+            beta_or       = columns["stat"],
             target_bed    = bed,
             target_bim    = bim,
             target_fam    = fam,
@@ -53,10 +57,18 @@ workflow prsice {
             bar_levels    = p_value_thresholds,
             output_prefix = out,
             prsice        = prsice_executable_path,
+            SNP           = columns["snp"],
+            A1            = columns["A1"],
+            A2            = columns["A2"],
+            P             = columns["P"],
+            POS           = columns["bp"],
+            CHR           = columns["chr"],
+            beta_or       = columns["stat"],
+            binary        = binary_phenotype_T_F,
             work_dir      = working_directory,
             nodes         = 1,
             procs         = 1,
-            memory_gb     = 16
+            memory_gb     = 16,
             errout        = "prsice" + "_" + out,
             job_name      = "prsice" + "_" + out,
             walltime      = "08:00:00"
