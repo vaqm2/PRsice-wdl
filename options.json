@@ -1,4 +1,5 @@
 {
     "final_workflow_outputs_dir": "Directory",
+    "use_relative_output_paths" : true,
     "write_to_cache" : false
 }
