@@ -39,9 +39,8 @@ workflow prsice {
             code_dir      = code_directory,
             perl_path     = perl_path,
             walltime      = "02:00:00",
-            nodes         = 1,
             procs         = 1,
-            memory_gb     = 8,
+            memory_g      = 8,
             err           = "harmonize" + "_" + out + ".err",
             out           = "harmonize" + "_" + out + ".out",
             job_name      = "harmonize" + "_" + out
@@ -68,7 +67,6 @@ workflow prsice {
             CHR           = columns["chr"],
             beta_or       = columns["stat"],
             binary        = binary_phenotype_T_F,
-            nodes         = 1,
             procs         = 1,
             memory_gb     = 16,
             err           = "prsice" + "_" + out + ".err",

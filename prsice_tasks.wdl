@@ -7,7 +7,6 @@ task harmonize {
         String output_prefix
         String bfile
         String walltime
-        Int nodes
         Int procs
         Int memory_gb
         String err
@@ -30,9 +29,8 @@ task harmonize {
 
     runtime {
         walltime : walltime
-        nodes : nodes
-        procs : procs
-        memory_gb : memory_gb
+        cpu : procs
+        memory : memory_gb
         err : err
         out : out
         job_name : job_name
@@ -57,7 +55,6 @@ task prsice_run {
         String P
         String beta_or
         String binary
-        Int nodes
         Int procs
         Int memory_gb
         String err
@@ -92,9 +89,8 @@ task prsice_run {
 
     runtime {
         walltime : walltime
-        nodes : nodes
-        procs : procs
-        memory_gb : memory_gb
+        cpu : procs
+        memory : memory_gb
         err : err
         out : out
         job_name : job_name
