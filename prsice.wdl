@@ -40,7 +40,7 @@ workflow prsice {
             perl_path     = perl_path,
             walltime      = "02:00:00",
             procs         = 1,
-            memory_g      = 8,
+            memory_gb      = 8,
             err           = "harmonize" + "_" + out + ".err",
             out           = "harmonize" + "_" + out + ".out",
             job_name      = "harmonize" + "_" + out
