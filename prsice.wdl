@@ -2,7 +2,7 @@ version 1.0
 
 ## This WDL implements the PRSice_v2.0 polygenic scoring pipeline
 ##
-## Inputs required: A GWAS file with header columns: SNP CHR A1 A2 OR/b se p
+## Inputs required: A GWAS file with header columns: snp chr bp A1 A2 OR/b se p
 ##                  A PLINK bfile of target genotypes
 ##
 ## Outputs: Polygenic Scores at specified p-value thresholds
@@ -24,7 +24,6 @@ workflow prsice {
         File fam
         File prsice_executable_path
         String out
-        String working_directory
         String p_value_thresholds
         String binary_phenotype_T_F
     }
@@ -35,12 +34,12 @@ workflow prsice {
             bim           = bim,
             bfile         = sub(bim, "\.bim$", ""),
             output_prefix = out,
-            work_dir      = working_directory,
             walltime      = "02:00:00",
             nodes         = 1,
             procs         = 1,
             memory_gb     = 8,
-            errout        = "harmonize" + "_" + out,
+            err           = "harmonize" + "_" + out + ".err",
+            out           = "harmonize" + "_" + out + ".out",
             job_name      = "harmonize" + "_" + out
     }
 
@@ -65,11 +64,11 @@ workflow prsice {
             CHR           = columns["chr"],
             beta_or       = columns["stat"],
             binary        = binary_phenotype_T_F,
-            work_dir      = working_directory,
             nodes         = 1,
             procs         = 1,
             memory_gb     = 16,
-            errout        = "prsice" + "_" + out,
+            err           = "prsice" + "_" + out + ".err",
+            out           = "prsice" + "_" + out + ".out",
             job_name      = "prsice" + "_" + out,
             walltime      = "08:00:00"
     }

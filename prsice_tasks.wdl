@@ -10,9 +10,9 @@ task harmonize {
         Int nodes
         Int procs
         Int memory_gb
-        String errout
+        String err
+        String out
         String job_name
-        String work_dir
     }
 
     command {
@@ -31,9 +31,9 @@ task harmonize {
         nodes : nodes
         procs : procs
         memory_gb : memory_gb
-        errout : errout
+        err : err
+        out : out
         job_name : job_name
-        work_dir : work_dir
     }
 }
 
@@ -54,12 +54,12 @@ task prsice_run {
         String POS
         String P
         String beta_or
-        String work_dir
         String binary
         Int nodes
         Int procs
         Int memory_gb
-        String errout
+        String err
+        String out
         String job_name
         String walltime
     }
@@ -93,8 +93,8 @@ task prsice_run {
         nodes : nodes
         procs : procs
         memory_gb : memory_gb
-        errout : errout
+        err : err
+        out : out
         job_name : job_name
-        work_dir : work_dir
     }
 }
