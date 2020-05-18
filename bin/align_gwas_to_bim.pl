@@ -84,11 +84,11 @@ while(my $line = $fh->getline)
         {
             if ($lineContents[$index]    =~ /snp/i)  { $snpColumn  = $index; }
             elsif ($lineContents[$index] =~ /chr/i)  { $chrColumn  = $index; }
-            elsif ($lineContents[$index] =~ /bp/i)   { $bpColumn   = $index; }
+            elsif ($lineContents[$index] =~ /pos/i)  { $bpColumn   = $index; }
             elsif ($lineContents[$index] =~ /A1/i)   { $a1Column   = $index; }
             elsif ($lineContents[$index] =~ /A2/i)   { $a2Column   = $index; }
             elsif ($lineContents[$index] =~ /or/i)   { $statColumn = $index; $stat = "or";}
-            elsif ($lineContents[$index] =~ /beta/i) { $statColumn = $index; $stat = "beta";}
+            elsif ($lineContents[$index] =~ /b/i)    { $statColumn = $index; $stat = "beta";}
             elsif ($lineContents[$index] =~ /P/i)    { $pvalColumn = $index; }
             else { print "INFO: Skipping non-mandatory column: $lineContents[$index]"."\n"; }
         }

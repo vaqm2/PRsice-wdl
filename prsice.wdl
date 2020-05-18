@@ -2,7 +2,7 @@ version 1.0
 
 ## This WDL implements the PRSice_v2.0 polygenic scoring pipeline
 ##
-## Inputs required: A GWAS file with header columns: snp chr bp A1 A2 OR/b se p
+## Inputs required: A GWAS file with header columns: snp chr pos A1 A2 OR/b p
 ##                  A PLINK bfile of target genotypes
 ##
 ## Outputs: Polygenic Scores at specified p-value thresholds
