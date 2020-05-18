@@ -27,6 +27,7 @@ workflow prsice {
         String p_value_thresholds
         String binary_phenotype_T_F
         String code_directory
+        String perl_path
     }
 
     call tasks.harmonize {
@@ -36,6 +37,7 @@ workflow prsice {
             bfile         = sub(bim, "\.bim$", ""),
             output_prefix = out,
             code_dir      = code_directory,
+            perl_path     = perl_path,
             walltime      = "02:00:00",
             nodes         = 1,
             procs         = 1,

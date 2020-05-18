@@ -14,10 +14,11 @@ task harmonize {
         String out
         String job_name
         String code_dir
+        String perl_path
     }
 
     command {
-        ${code_dir}/align_gwas_to_bim.pl --gwas ${gwas} \
+        ${perl_path} ${code_dir}/align_gwas_to_bim.pl --gwas ${gwas} \
                                  --bfile ${bfile} \
                                  --out ${output_prefix}
     }
