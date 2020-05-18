@@ -79,7 +79,7 @@ task prsice_run {
                   --binary-target ${binary} \
                   --base ${reference} \
                   --target ${target} \
-                  --${beta_or}
+                  --${beta_or} \
                   --out ${output_prefix} \
                   --bar-levels ${bar_levels}
     }

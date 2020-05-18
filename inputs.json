@@ -2,10 +2,12 @@
   "prsice.prsice_executable_path": "File",
   "prsice.fam": "File",
   "prsice.bed": "File",
+  "prsice.perl_path": "String",
   "prsice.gwas": "File",
   "prsice.bim": "File",
   "prsice.binary_phenotype_T_F": "String",
   "prsice.p_value_thresholds": "String",
+  "prsice.code_directory": "String",
   "prsice.out": "String"
 }
 
