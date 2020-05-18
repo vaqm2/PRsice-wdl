@@ -30,7 +30,7 @@ task harmonize {
     runtime {
         walltime : walltime
         cpu : procs
-        memory : memory_gb
+        memory_gb : memory_gb
         err : err
         out : out
         job_name : job_name
@@ -90,7 +90,7 @@ task prsice_run {
     runtime {
         walltime : walltime
         cpu : procs
-        memory : memory_gb
+        memory_gb : memory_gb
         err : err
         out : out
         job_name : job_name
