@@ -13,10 +13,11 @@ task harmonize {
         String err
         String out
         String job_name
+        String code_dir
     }
 
     command {
-        bin/align_gwas_to_bim.pl --gwas ${gwas} \
+        ${code_dir}/align_gwas_to_bim.pl --gwas ${gwas} \
                                  --bfile ${bfile} \
                                  --out ${output_prefix}
     }
