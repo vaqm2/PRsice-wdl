@@ -11,6 +11,9 @@ task harmonize {
         Int memory_gb
         String code_dir
         String perl_path
+        String err
+        String out
+        String job_name
     }
 
     command {
@@ -28,6 +31,9 @@ task harmonize {
         walltime : walltime
         cpu : procs
         memory : memory_gb
+        err : err
+        out : out
+        job_name : job_name
     }
 }
 
@@ -52,6 +58,9 @@ task prsice_run {
         Int procs
         Int memory_gb
         String walltime
+        String err
+        String out
+        String job_name
     }
 
     command {
@@ -82,5 +91,8 @@ task prsice_run {
         walltime : walltime
         cpu : procs
         memory : memory_gb
+        err : err
+        out : out
+        job_name : job_name
     }
 }
