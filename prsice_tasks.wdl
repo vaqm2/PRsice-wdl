@@ -85,9 +85,9 @@ task prsice_run {
     }
 
     output {
-        File scores  = "${output_prefix}.all.scores"
+        File scores  = "${output_prefix}.all.score"
         File log     = "${output_prefix}.log"
-        File summary = "${output_prefix}.summary"
+        File summary = "${output_prefix}.prsice"
     }
 
     runtime {
